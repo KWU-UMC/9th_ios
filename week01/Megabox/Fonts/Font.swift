@@ -15,7 +15,12 @@ extension Font {
         case medium
         case regular
         case light
-                
+        //
+        case black
+        case extra_light
+        case thin
+        case variable
+        
         var value: String {
                     switch self {
                     case .extra:
@@ -30,6 +35,16 @@ extension Font {
                         return "Pretendard-Regular"
                     case .light:
                         return "Pretendard-Light"
+                    
+                    case .black:
+                        return "Pretendard-Black"
+                    case .extra_light:
+                        return "Pretendard-ExtraLight"
+                    case .thin:
+                        return "Pretendard-Thin"
+                    case .variable:
+                        return "PretendardVariable"
+                    
                     }
                 }
         

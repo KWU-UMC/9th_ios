@@ -6,7 +6,7 @@ struct SplashView: View {
     var body: some View {
         ZStack {
             if isActive {
-                LoginView()   // ✅ 일정 시간이 지나면 LoginView로 전환
+                LoginView()   //일정 시간이 지나면 LoginView로 전환
             } else {
                 Image("meboxLogo 1")
                     .frame(width: 249, height: 84)

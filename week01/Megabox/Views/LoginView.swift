@@ -1,19 +1,20 @@
 import SwiftUI
 
 struct LoginView: View {
-    var body: some View {
-        
-       
-        
+    
+    @Environment(LoginViewModel.self) private var viewModel
 
+    @AppStorage("username") private var username: String = ""
+    @AppStorage("password") private var password: String = ""
+    
+    var body: some View {
         VStack{
+            
             // 상단 네비게이션
             navigationBar
-            
             // 입력 섹션
             Spacer(minLength: 44)
             personalInfo
-            
             // 로그인 버튼
             Spacer(minLength: 75)
             LoginButton
@@ -31,6 +32,7 @@ struct LoginView: View {
             
         }
         .padding(.top, 16)
+        .padding(.horizontal,16)
               
         
         
@@ -53,16 +55,17 @@ struct LoginView: View {
     }
 
     private var personalInfo: some View {
-        VStack(spacing: 40) {
+        
+        return VStack(spacing: 40) {
             VStack(alignment: .leading, spacing: 8) {
-                Text("아이디")
+                TextField("아이디", text: $username)
                     .foregroundColor(Color("grey03"))
                 Divider()
                     .foregroundColor(Color("grey02"))
             }
 
             VStack(alignment: .leading, spacing: 8) {
-                Text("비밀번호")
+                SecureField("비밀번호", text: $password)
                     .foregroundColor(Color("grey03"))
                 Divider()
                     .foregroundColor(Color("grey02"))
@@ -74,17 +77,20 @@ struct LoginView: View {
     
     private var LoginButton: some View {
         Button(action: {
-            print("버튼 클릭")
+            
+            viewModel.login(username: username, password: password)
+            
         }) {
             Text("로그인")
                 .font(.bold18)
                 .foregroundColor(Color("White"))
                 .frame(maxWidth: .infinity)   // 텍스트가 가운데 오도록
         }
-        .frame(width: 407, height: 54)
+        .frame(height: 54)
         .background(Color("purple03"))
         .cornerRadius(10)
         .shadow(color: .black.opacity(0.25), radius: 6, x: 0, y: 4)
+
     }
     
     private var newId: some View{
@@ -119,7 +125,9 @@ struct LoginView: View {
     private var UMCPoster: some View{
         
         Image("umc 1")
-            .frame(width: 408, height: 266)
+            .resizable() // 이미지는 고유의 크기를 가지고 있기 때문에 frame이 안먹힘
+        //
+            
         
         
     }
@@ -127,5 +135,7 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    LoginView().environment(LoginViewModel())
+           
+        
 }
