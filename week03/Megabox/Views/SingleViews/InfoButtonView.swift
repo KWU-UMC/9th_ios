@@ -25,7 +25,7 @@ struct InfoButton: View {
                 } else {
                     Rectangle()
                         .frame(height: 3)
-                        .foregroundColor(.clear)
+                        .foregroundColor(.grey02)
                 }
             }
             .padding(.vertical, 8)
