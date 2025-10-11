@@ -10,5 +10,8 @@ struct MovieCards: Identifiable{
     var movieName: String
     var watchedStatus: String
     var movieNameEn: String // 영문 제목 추가
+    
+    var movieDescription: MovieDescription
+    
 }
 

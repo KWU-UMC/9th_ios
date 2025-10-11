@@ -6,8 +6,3 @@ enum ChartType {
     case movieChart
     case comingSoon
 }
-
-enum InfoType{
-    case details
-    case reviews
-}

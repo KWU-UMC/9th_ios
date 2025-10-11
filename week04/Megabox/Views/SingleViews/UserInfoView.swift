@@ -38,7 +38,6 @@ struct UserInfoView: View {
             }
             
             HStack {
-                // 👇 makeBackward 함수 호출 대신 Button을 직접 여기에 넣습니다.
                 Button(action: {
                     dismiss()
                 }, label: {

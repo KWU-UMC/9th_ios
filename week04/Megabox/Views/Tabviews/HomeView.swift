@@ -6,7 +6,7 @@ struct HomeView: View {
     //현재 버튼의 상태 저장
     @State private var selectedChart: ChartType = .movieChart
     @State private var viewModel = MovieCardsViewModel()
-    
+
     
     var body: some View {
         

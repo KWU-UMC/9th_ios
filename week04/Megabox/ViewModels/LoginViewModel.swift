@@ -16,7 +16,6 @@ class LoginViewModel {
     func login(username: String, password: String) {
         if username == "Eom175" && password == "eom175" {
             print("로그인 성공!")
-            
             // 로그인 성공 시, 공유 userViewModel의 상태를 변경
             userViewModel.username = username 
             userViewModel.isLoggedIn = true
